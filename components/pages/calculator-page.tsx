@@ -1,13 +1,31 @@
+"use client"
+
+import Calculator from "@/components/organisms/calculator"
+import MainLayout from "@/components/templates/main-layout"
+import { useCalculator } from "@/contexts/calculator_context"
+
 /**
- * WIP
+ *
  * @returns a Calculator Page UI component
  */
 
 const CalculatorPage = () => {
+  const { currentOperand, previousOperand, dispatch } = useCalculator()
+
+  console.log(`current: ${currentOperand}, previous: ${previousOperand}`)
+
+  const formatOperand = (operand: string | null) => {
+    console.log(operand)
+    return operand === null ? "0" : operand
+  }
+
   return (
-    <div className="font-league-spartan self-center text-center text-black">
-      This is the calculator page
-    </div>
+    <MainLayout>
+      <Calculator
+        displayValue={formatOperand(currentOperand || previousOperand)}
+        dispatch={dispatch}
+      />
+    </MainLayout>
   )
 }
 

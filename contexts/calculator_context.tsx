@@ -1,3 +1,5 @@
+"use client"
+
 import {
   createContext,
   useContext,
@@ -44,10 +46,9 @@ function evaluate({
     case "/":
       computation = prev / current
       break
-    default:
-      computation = computation
-      break
   }
+
+  console.log("computation value: ", computation)
 
   return computation.toString()
 }
@@ -72,17 +73,17 @@ function reducer(state: State, action: Action): State {
         currentOperand: `${state.currentOperand || ""}${action.payload}`,
       }
     case "CHOOSE_OPERATION":
-      if (state.currentOperand === null && state.previousOperand === null)
+      if (state.currentOperand == null && state.previousOperand == null)
         return state
 
-      if (state.currentOperand === null) {
+      if (state.currentOperand == null) {
         return {
           ...state,
           operation: action.payload,
         }
       }
 
-      if (state.previousOperand === null) {
+      if (state.previousOperand == null) {
         return {
           ...state,
           operation: action.payload,
@@ -108,18 +109,18 @@ function reducer(state: State, action: Action): State {
         }
       }
 
-      if (state.currentOperand === null) return state
+      if (state.currentOperand == null) return state
 
-      if (state.currentOperand.length <= 1) {
+      if (state.currentOperand.length === 1) {
         return { ...state, currentOperand: null }
       }
 
       return { ...state, currentOperand: state.currentOperand.slice(0, -1) }
     case "EVALUATE":
       if (
-        state.operation === null ||
-        state.currentOperand === null ||
-        state.previousOperand === null
+        state.operation == null ||
+        state.currentOperand == null ||
+        state.previousOperand == null
       ) {
         return state
       }
