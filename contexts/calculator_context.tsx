@@ -46,9 +46,9 @@ function evaluate({
     case "/":
       computation = prev / current
       break
+    default:
+      return ""
   }
-
-  console.log("computation value: ", computation)
 
   return computation.toString()
 }

@@ -26,7 +26,10 @@ const Keypad = ({ dispatch }: KeypadProps) => {
       >
         9
       </NumKeyButton>
-      <NumKeyButton onClick={() => dispatch({ type: "DELETE" })}>
+      <NumKeyButton
+        variant="secondary"
+        onClick={() => dispatch({ type: "DELETE" })}
+      >
         DEL
       </NumKeyButton>
       {/* Second row */}
@@ -46,6 +49,7 @@ const Keypad = ({ dispatch }: KeypadProps) => {
         6
       </NumKeyButton>
       <NumKeyButton
+        className="pb-3"
         onClick={() => dispatch({ type: "CHOOSE_OPERATION", payload: "+" })}
       >
         +
@@ -67,6 +71,7 @@ const Keypad = ({ dispatch }: KeypadProps) => {
         3
       </NumKeyButton>
       <NumKeyButton
+        className="pb-3"
         onClick={() => dispatch({ type: "CHOOSE_OPERATION", payload: "-" })}
       >
         -
@@ -88,6 +93,7 @@ const Keypad = ({ dispatch }: KeypadProps) => {
         /
       </NumKeyButton>
       <NumKeyButton
+        className="pb-3 text-xl"
         onClick={() => dispatch({ type: "CHOOSE_OPERATION", payload: "x" })}
       >
         x
@@ -106,7 +112,7 @@ const Keypad = ({ dispatch }: KeypadProps) => {
         variant="accent"
         className="col-span-2"
         onClick={() => {
-          dispatch({ type: "CLEAR" })
+          dispatch({ type: "EVALUATE" })
         }}
       >
         =
