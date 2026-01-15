@@ -12,10 +12,7 @@ import { useCalculator } from "@/contexts/calculator_context"
 const CalculatorPage = () => {
   const { currentOperand, previousOperand, dispatch } = useCalculator()
 
-  console.log(`current: ${currentOperand}, previous: ${previousOperand}`)
-
   const formatOperand = (operand: string | null) => {
-    console.log(operand)
     return operand === null ? "0" : operand
   }
 
