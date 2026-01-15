@@ -18,10 +18,15 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>(() => {
-    const saved = localStorage.getItem("theme")
-    return (saved as Theme) || "1"
-  })
+  const [theme, setTheme] = useState<Theme>("1")
+
+  // Only access localStorage after component mounts (client-side only)
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme")
+    if (savedTheme && savedTheme.length) {
+      setTheme(savedTheme as Theme)
+    }
+  }, [])
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme)
