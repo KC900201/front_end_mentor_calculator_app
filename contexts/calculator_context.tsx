@@ -157,7 +157,7 @@ export const useCalculator = () => {
   const context = useContext(CalculatorContext)
 
   if (context === undefined) {
-    throw new Error("useCalculator muse be used within a CalculatorProvider")
+    throw new Error("useCalculator must be used within a CalculatorProvider")
   }
 
   return context

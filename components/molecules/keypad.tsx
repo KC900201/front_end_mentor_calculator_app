@@ -98,7 +98,7 @@ const Keypad = ({ dispatch }: KeypadProps) => {
       >
         x
       </NumKeyButton>
-      {/* Botton row */}
+      {/* Bottom row */}
       <NumKeyButton
         variant="secondary"
         className="col-span-2 text-[20px]"
