@@ -16,7 +16,12 @@ const NumKeyButton = ({
   onClick,
 }: NumKeyButtonProps) => {
   return (
-    <Button variant={variant} className={className} onClick={onClick}>
+    <Button
+      variant={variant}
+      type="button"
+      className={className}
+      onClick={onClick}
+    >
       {children}
     </Button>
   )

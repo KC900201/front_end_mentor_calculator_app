@@ -14,9 +14,6 @@ This is a solution to the [Calculator app challenge on Frontend Mentor](https://
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -31,82 +28,82 @@ Users should be able to:
 
 ### Screenshot
 
-![](/public/preview.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![Calculator App Screenshot](/public/preview.jpg)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Github Repo](https://github.com/KC900201/front_end_mentor_calculator_app)
+- Live Site URL: [FE Mentor calculator app](https://fementor-calculator.netlify.app/)
 
 ## My process
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+- [Next.js 16](https://nextjs.org/) - React framework with App Router
+- [React 19](https://reactjs.org/) - JavaScript library
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+- [Tailwind CSS 4](https://tailwindcss.com/) - Utility-first CSS framework
+- [shadcn/ui](https://ui.shadcn.com/) - Component library (Radix UI primitives)
+- React Context API - State management
+- Atomic Design Pattern - Component architecture
+- Mobile-first responsive design
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+This project helped me practice and refine several key concepts:
 
-To see how you can add code snippets, see below:
+**Atomic Design Pattern**: Organized components into atoms, molecules, organisms, pages, and templates for better maintainability and scalability.
 
-```html
-<h1>Some HTML code I'm proud of</h1>
 ```
-```css
-.proud-of-this-css {
-  color: papayawhip;
+components/
+  ├── atoms/        # Basic building blocks (buttons, displays)
+  ├── molecules/    # Simple component groups (header, keypad)
+  ├── organisms/    # Complex components (calculator)
+  ├── pages/        # Page-level components
+  └── templates/    # Layout templates
+```
+
+**Context API with useReducer**: Implemented calculator logic using React's Context API combined with useReducer for predictable state management:
+
+```tsx
+const reducer = (state: State, action: Action): State => {
+  switch (action.type) {
+    case "ADD_DIGIT":
+      // Handle digit input
+    case "CHOOSE_OPERATION":
+      // Handle operation selection
+    // ...
+  }
 }
 ```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+
+**Theme Management**: Created a theme system with localStorage persistence and proper SSR handling in Next.js:
+
+```tsx
+useEffect(() => {
+  const savedTheme = localStorage.getItem("theme")
+  if (savedTheme) setTheme(savedTheme as Theme)
+}, [])
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+Areas for future improvement:
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+- **Testing**: Add unit tests for calculator logic and component tests using Jest and React Testing Library
+- **Accessibility**: Enhance keyboard navigation and screen reader support
+- **Advanced Features**: Implement scientific calculator functions, calculation history, and keyboard shortcuts
+- **Performance**: Optimize re-renders with React.memo and useMemo where appropriate
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [Next.js App Router Documentation](https://nextjs.org/docs/app) - Essential for understanding the new app directory structure
+- [Tailwind CSS v4 Documentation](https://tailwindcss.com/docs) - Helped with the new CSS variable-based configuration
+- [Atomic Design by Brad Frost](https://bradfrost.com/blog/post/atomic-web-design/) - Foundation for the component architecture
+- [React useReducer Hook](https://react.dev/reference/react/useReducer) - Great explanation of reducer patterns for complex state
 
 ## Author
 
 - Website - [KC Ng](https://kcng.netlify.app)
 - Frontend Mentor - [@KC900201](https://www.frontendmentor.io/profile/KC900201)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
