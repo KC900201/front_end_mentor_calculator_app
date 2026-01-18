@@ -13,11 +13,11 @@ interface CalculatorProps {
 
 const Calculator = ({ displayValue, dispatch }: CalculatorProps) => {
   return (
-    <div className="w-full max-w-135">
+    <article className="w-full max-w-135">
       <Header />
       <Display value={displayValue} />
       <Keypad dispatch={dispatch} />
-    </div>
+    </article>
   )
 }
 
